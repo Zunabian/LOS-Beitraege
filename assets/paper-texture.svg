@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520">
+  <defs>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.22"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="520" height="520" fill="#d8c09a"/>
+  <rect width="520" height="520" filter="url(#noise)" opacity=".55"/>
+  <path d="M0 70 C90 54, 140 88, 230 68 S390 44, 520 75" stroke="#8c6a3f" stroke-opacity=".08" stroke-width="3" fill="none"/>
+  <path d="M0 310 C110 280, 170 340, 260 304 S420 265, 520 315" stroke="#8c6a3f" stroke-opacity=".08" stroke-width="4" fill="none"/>
+  <circle cx="82" cy="116" r="42" fill="#6d4c2d" opacity=".045"/>
+  <circle cx="425" cy="390" r="58" fill="#6d4c2d" opacity=".04"/>
+</svg>

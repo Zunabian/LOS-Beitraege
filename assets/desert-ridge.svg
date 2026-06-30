@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4b3624"/>
+      <stop offset="48%" stop-color="#2e2116"/>
+      <stop offset="100%" stop-color="#130e09"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d9b873" stop-opacity=".52"/>
+      <stop offset="100%" stop-color="#8f3326" stop-opacity=".04"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="760" fill="url(#sky)"/>
+  <circle cx="1225" cy="172" r="135" fill="url(#sun)"/>
+  <path d="M0,510 L120,455 L235,478 L365,420 L510,465 L665,385 L810,450 L960,395 L1120,465 L1275,400 L1430,455 L1600,410 L1600,760 L0,760 Z" fill="#3c2b1c"/>
+  <path d="M0,580 L140,528 L270,555 L420,492 L585,552 L745,458 L930,548 L1100,482 L1270,552 L1450,500 L1600,540 L1600,760 L0,760 Z" fill="#57412d"/>
+  <path d="M0,650 L170,608 L325,638 L485,585 L650,640 L815,560 L1030,646 L1210,585 L1400,642 L1600,600 L1600,760 L0,760 Z" fill="#745940"/>
+  <path d="M0,712 C230,662 410,710 610,674 C830,636 995,704 1190,668 C1385,632 1500,660 1600,640 L1600,760 L0,760 Z" fill="#8d6c4a"/>
+</svg>

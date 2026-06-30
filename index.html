@@ -3,323 +3,1261 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bewerbung Vize-Emir | Nico Hills</title>
+  <meta name="description" content="Bewerbung von Nico Hills zum Vize-Emir der Al-Yad." />
+  <title>Nico Hills | Bewerbung zum Vize-Emir</title>
 
   <style>
-    * { box-sizing: border-box; scroll-behavior: smooth; }
+    :root {
+      --ink: #15100b;
+      --night: #100d09;
+      --mud: #20170f;
+      --mud-2: #2e2418;
+      --sand: #dfc79c;
+      --sand-2: #c7a976;
+      --sand-3: #9e8052;
+      --paper: #d8c09a;
+      --paper-2: #c9aa79;
+      --rust: #8f3326;
+      --rust-2: #b24a36;
+      --olive: #5f6847;
+      --olive-2: #7c835d;
+      --text: #eee2ca;
+      --muted: #cbb995;
+      --line: rgba(223, 199, 156, 0.18);
+      --radius: 22px;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    html {
+      background: var(--night);
+    }
 
     body {
       margin: 0;
+      color: var(--text);
       font-family: Georgia, "Times New Roman", serif;
       background:
-        linear-gradient(rgba(15,10,6,.92), rgba(15,10,6,.96)),
-        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-attachment: fixed;
-      color: #e8dcc6;
+        linear-gradient(rgba(16, 13, 9, 0.88), rgba(16, 13, 9, 0.96)),
+        url("assets/paper-texture.svg"),
+        radial-gradient(circle at 15% 20%, rgba(178, 74, 54, 0.16), transparent 26%),
+        radial-gradient(circle at 82% 12%, rgba(124, 131, 93, 0.12), transparent 26%),
+        linear-gradient(180deg, #22180f 0%, #100d09 100%);
+      background-size: auto, 520px, auto, auto, auto;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.13;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 48px,
+          rgba(255,255,255,0.045) 49px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          rgba(255,255,255,0.018) 0,
+          rgba(255,255,255,0.018) 1px,
+          transparent 1px,
+          transparent 6px
+        );
+      mix-blend-mode: overlay;
+    }
+
+    ::selection {
+      background: rgba(178, 74, 54, 0.6);
+      color: white;
     }
 
     .wrap {
-      width: min(1050px, 92%);
-      margin: auto;
+      width: min(1160px, 92%);
+      margin: 0 auto;
     }
 
-    header {
-      min-height: 100vh;
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--line);
+      background: rgba(16, 13, 9, 0.88);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      width: min(1160px, 92%);
+      margin: 0 auto;
+      min-height: 66px;
       display: flex;
       align-items: center;
-      text-align: center;
-      border-bottom: 2px solid #5b1c16;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--sand);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      filter: drop-shadow(0 5px 10px rgba(0,0,0,0.45));
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: var(--muted);
+      padding: 9px 12px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      transition: 0.2s ease;
+      font-size: 0.94rem;
+    }
+
+    .links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(223,199,156,0.18);
     }
 
     .hero {
-      width: 100%;
-      padding: 50px 20px;
-      background: rgba(35, 23, 14, .78);
-      border: 2px solid #7a261e;
-      box-shadow: 0 0 35px rgba(0,0,0,.8);
+      min-height: calc(100vh - 66px);
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background:
+        linear-gradient(to top, rgba(16,13,9,1) 0%, rgba(16,13,9,0.40) 55%, rgba(16,13,9,0.85) 100%),
+        url("assets/desert-ridge.svg") bottom center / cover no-repeat;
+      border-bottom: 1px solid var(--line);
     }
 
-    .stamp {
-      display: inline-block;
-      border: 3px solid #9b2d23;
-      color: #c84434;
-      padding: 8px 18px;
-      transform: rotate(-4deg);
-      font-weight: bold;
-      letter-spacing: 3px;
-      margin-bottom: 25px;
+    .dust {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.12;
+      background-image:
+        radial-gradient(circle, rgba(223,199,156,0.9) 0 1px, transparent 1.5px);
+      background-size: 70px 70px;
+      animation: drift 18s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes drift {
+      0% { transform: translate3d(0,0,0); }
+      100% { transform: translate3d(-70px, 70px, 0); }
+    }
+
+    .hero-card {
+      width: min(980px, 100%);
+      position: relative;
+      margin: 64px 0;
+      background:
+        linear-gradient(180deg, rgba(54, 42, 28, 0.92), rgba(26, 19, 13, 0.96));
+      border: 1px solid rgba(223,199,156,0.22);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.08), transparent 28%),
+        url("assets/paper-texture.svg");
+      background-size: auto, 420px;
+      opacity: 0.18;
+    }
+
+    .hero-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 14px;
+      border: 1px solid rgba(223,199,156,0.22);
+      border-radius: 999px;
+      color: var(--sand);
+      background: rgba(0,0,0,0.20);
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .stamp-img {
+      width: 168px;
+      max-width: 38vw;
+      transform: rotate(-7deg);
+      opacity: 0.92;
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.35));
+    }
+
+    .hero-main {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .emblem-frame {
+      width: 210px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.09), transparent 35%),
+        linear-gradient(180deg, #3a2b1c, #18110b);
+      border: 2px solid rgba(223,199,156,0.24);
+      box-shadow: inset 0 0 34px rgba(0,0,0,0.4), 0 18px 28px rgba(0,0,0,0.35);
+      position: relative;
+    }
+
+    .emblem-frame::after {
+      content: "";
+      position: absolute;
+      inset: 13px;
+      border-radius: 50%;
+      border: 1px dashed rgba(223,199,156,0.22);
+    }
+
+    .emblem-frame img {
+      width: 148px;
+      height: 148px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--sand-2);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.92rem;
+      font-weight: 700;
     }
 
     h1 {
-      font-size: clamp(2.3rem, 7vw, 5rem);
-      margin: 10px 0;
-      letter-spacing: 3px;
-      color: #f1d8a7;
-      text-shadow: 0 0 12px #000;
-    }
-
-    h2 {
-      color: #d6b36a;
-      border-bottom: 1px solid #7a261e;
-      padding-bottom: 10px;
-      margin-top: 0;
+      margin: 0;
+      color: #f3e7cf;
+      font-size: clamp(2.7rem, 7vw, 5.6rem);
+      line-height: 0.92;
       letter-spacing: 1px;
+      text-shadow: 0 8px 24px rgba(0,0,0,0.45);
     }
 
     .subtitle {
-      font-size: 1.3rem;
-      color: #c9b28a;
+      margin: 18px 0 12px;
+      color: var(--sand);
+      font-size: clamp(1.08rem, 2.3vw, 1.45rem);
+      font-weight: 700;
     }
 
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(16, 10, 7, .95);
-      border-bottom: 1px solid #5b1c16;
-      padding: 12px;
-      text-align: center;
+    .hero-text {
+      max-width: 690px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1.02rem;
     }
 
-    nav a {
-      color: #e8dcc6;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 13px 18px;
       text-decoration: none;
-      margin: 0 12px;
-      font-weight: bold;
+      border: 1px solid rgba(223,199,156,0.2);
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+      font-weight: 700;
     }
 
-    nav a:hover { color: #d6b36a; }
-
-    section {
-      margin: 45px 0;
-      padding: 30px;
-      background: rgba(38, 25, 15, .88);
-      border: 1px solid #6f241d;
-      box-shadow: 0 0 25px rgba(0,0,0,.55);
+    .button.primary {
+      color: white;
+      background: linear-gradient(180deg, var(--rust-2), var(--rust));
+      box-shadow: 0 14px 24px rgba(143,51,38,0.22);
     }
 
-    .grid {
+    .button.secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .section {
+      padding: 82px 0 4px;
+    }
+
+    .section-head {
+      margin-bottom: 26px;
+    }
+
+    .kicker {
+      color: var(--sand-2);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+      font-size: 0.86rem;
+      margin-bottom: 9px;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--sand);
+      font-size: clamp(1.8rem, 4.4vw, 2.8rem);
+      line-height: 1.08;
+    }
+
+    .desc {
+      max-width: 790px;
+      color: var(--muted);
+      line-height: 1.78;
+      margin: 12px 0 0;
+    }
+
+    .panel {
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(47, 36, 24, 0.95), rgba(28, 21, 14, 0.95));
+      border: 1px solid rgba(223,199,156,0.15);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: url("assets/paper-texture.svg");
+      opacity: 0.10;
+      background-size: 450px;
+    }
+
+    .panel-header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(223,199,156,0.12);
+      background: rgba(0,0,0,0.16);
+    }
+
+    .panel-title {
+      color: var(--sand);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      font-size: 0.95rem;
+    }
+
+    .panel-code {
+      color: var(--sand-3);
+      font-size: 0.88rem;
+    }
+
+    .panel-body {
+      position: relative;
+      z-index: 1;
+      padding: 22px;
+    }
+
+    .info-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 15px;
     }
 
-    .card {
-      background: rgba(0,0,0,.25);
-      border-left: 4px solid #8c2b22;
+    .info-card {
+      min-height: 98px;
+      border-radius: 16px;
       padding: 16px;
+      border: 1px solid rgba(223,199,156,0.09);
+      background: rgba(255,255,255,0.035);
     }
 
     .label {
-      color: #bfa36c;
-      font-weight: bold;
       display: block;
-      margin-bottom: 5px;
+      color: var(--sand-2);
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      font-weight: 700;
     }
 
-    .quote {
-      background: #d8c19a;
-      color: #24170d;
-      padding: 30px;
-      border: 2px solid #76502c;
-      font-size: 1.05rem;
+    .value {
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .copy {
+      border-radius: 16px;
+      padding: 18px;
+      background: rgba(255,255,255,0.028);
+      border: 1px solid rgba(223,199,156,0.08);
+      color: var(--muted);
+      line-height: 1.82;
+    }
+
+    .stat-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .stat {
+      border-radius: 16px;
+      padding: 15px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(223,199,156,0.09);
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 11px;
+      color: var(--text);
+    }
+
+    .bar {
+      height: 11px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid rgba(223,199,156,0.1);
+      background: rgba(0,0,0,0.25);
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--olive), var(--sand));
+      box-shadow: 0 0 16px rgba(223,199,156,0.18);
+    }
+
+    .dossier-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+      gap: 22px;
+    }
+
+    .portrait-card {
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(40,31,21,0.96), rgba(22,16,11,0.96));
+      border: 1px solid rgba(223,199,156,0.15);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .portrait-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("assets/paper-texture.svg");
+      background-size: 380px;
+      opacity: 0.10;
+      pointer-events: none;
+    }
+
+    .portrait-card img {
+      width: 100%;
+      max-width: 340px;
+      display: block;
+      margin: 0 auto 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(223,199,156,0.16);
+      position: relative;
+      z-index: 1;
+      background: rgba(0,0,0,0.16);
+    }
+
+    .portrait-note {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
       line-height: 1.7;
-      box-shadow: inset 0 0 25px rgba(0,0,0,.25);
+      font-size: 0.96rem;
     }
 
-    .timeline div {
-      border-left: 3px solid #8c2b22;
-      padding: 0 0 22px 18px;
-      margin-left: 8px;
+    .timeline {
+      display: grid;
+      gap: 15px;
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 14px 24px;
-      background: #7a261e;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      border: 1px solid #c99a54;
+    .timeline-item {
+      position: relative;
+      border-radius: 18px;
+      padding: 17px 18px 17px 56px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(223,199,156,0.09);
+      overflow: hidden;
     }
 
-    .btn:hover {
-      background: #9b2d23;
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 22px;
+      top: 21px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--rust-2);
+      box-shadow: 0 0 0 6px rgba(178,74,54,0.13);
+    }
+
+    .timeline-title {
+      color: var(--text);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .timeline-text {
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .goals {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .goal {
+      display: flex;
+      gap: 13px;
+      align-items: start;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(223,199,156,0.09);
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .mark {
+      flex: 0 0 26px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(143,51,38,0.22);
+      border: 1px solid rgba(178,74,54,0.25);
+      color: #ffcfbf;
+      font-weight: 700;
+    }
+
+    .map-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 20px;
+      align-items: center;
+    }
+
+    .map-panel img {
+      width: 100%;
+      max-width: 520px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 20px;
+      border: 1px solid rgba(223,199,156,0.15);
+      background: rgba(0,0,0,0.18);
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.35);
+    }
+
+    .letter {
+      position: relative;
+      color: #2b2015;
+      background:
+        linear-gradient(180deg, rgba(225,204,166,0.94), rgba(197,165,112,0.96)),
+        url("assets/paper-texture.svg");
+      background-size: auto, 520px;
+      border: 1px solid #8e7048;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 30px;
+      overflow: hidden;
+    }
+
+    .letter::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(78,54,29,0.18);
+      border-radius: 18px;
+      pointer-events: none;
+    }
+
+    .letter-head {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .letter-title {
+      margin: 0 0 6px;
+      font-size: 1.22rem;
+      font-weight: 700;
+    }
+
+    .letter-sub {
+      color: #62472a;
+      line-height: 1.6;
+    }
+
+    .wax {
+      flex: 0 0 86px;
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 28% 28%, #de7b68, #8f3326 68%);
+      border: 4px solid #672016;
+      display: grid;
+      place-items: center;
+      color: #f9d7ce;
+      font-weight: 700;
+      letter-spacing: 2px;
+      box-shadow: inset 0 0 18px rgba(0,0,0,0.23);
+      transform: rotate(-4deg);
+    }
+
+    .letter-body {
+      position: relative;
+      z-index: 1;
+      line-height: 1.92;
+      font-size: 1.03rem;
+    }
+
+    .cta {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 25px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(55,43,29,0.96), rgba(27,20,14,0.96));
+      border: 1px solid rgba(223,199,156,0.15);
+      box-shadow: var(--shadow);
+    }
+
+    .cta p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 720px;
     }
 
     footer {
+      padding: 55px 0 80px;
       text-align: center;
-      padding: 35px;
-      color: #a98f66;
+      color: #a99672;
+    }
+
+    .footer-line {
+      height: 1px;
+      width: min(1160px, 92%);
+      margin: 0 auto 22px;
+      background: linear-gradient(90deg, transparent, rgba(223,199,156,0.22), transparent);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .72s ease, transform .72s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-main,
+      .two-col,
+      .dossier-layout,
+      .map-panel,
+      .info-grid,
+      .goals {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main {
+        text-align: center;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .emblem-frame {
+        width: 168px;
+        margin: 0 auto;
+      }
+
+      .emblem-frame img {
+        width: 122px;
+        height: 122px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        justify-content: center;
+        padding: 10px 0;
+      }
+
+      .brand {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .links {
+        justify-content: center;
+      }
+
+      .hero-card {
+        padding: 20px;
+        border-radius: 22px;
+      }
+
+      .hero-top {
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .stamp-img {
+        max-width: 190px;
+      }
+
+      .section {
+        padding-top: 64px;
+      }
+
+      .panel-body,
+      .letter {
+        padding: 20px;
+      }
+
+      .letter-head,
+      .cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .wax {
+        align-self: center;
+      }
+
+      .button {
+        width: 100%;
+      }
     }
   </style>
 </head>
 
 <body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Zur Startseite">
+        <img src="assets/al-yad-emblem.svg" alt="" />
+        Al-Yad Akte
+      </a>
 
-<nav>
-  <a href="#ooc">OOC</a>
-  <a href="#char">Nico Hills</a>
-  <a href="#ziele">Ziele</a>
-  <a href="#brief">Brief</a>
-  <a href="#gextension">GExtension</a>
-</nav>
-
-<header>
-  <div class="wrap">
-    <div class="hero">
-      <div class="stamp">AL-YAD AKTE</div>
-      <h1>Nico Hills</h1>
-      <p class="subtitle">Bewerbung zum Vize-Emir der Al-Yad</p>
-      <p>Spezialeinheiten-Regiment der Miliz</p>
+      <div class="links">
+        <a href="#ooc">OOC</a>
+        <a href="#charakter">Charakter</a>
+        <a href="#adirien">Adirien</a>
+        <a href="#ziele">Ziele</a>
+        <a href="#brief">Brief</a>
+        <a href="#gextension">GExtension</a>
+      </div>
     </div>
-  </div>
-</header>
+  </nav>
 
-<main class="wrap">
+  <header class="hero" id="top">
+    <div class="dust"></div>
 
-<section id="ooc">
-  <h2>Persönliche Informationen OOC</h2>
-  <div class="grid">
-    <div class="card"><span class="label">Name</span>Nico</div>
-    <div class="card"><span class="label">Alter</span>XX Jahre</div>
-    <div class="card"><span class="label">Steam-Name</span>Hier eintragen</div>
-    <div class="card"><span class="label">Spielzeit</span>XXX Stunden</div>
-    <div class="card"><span class="label">Erfahrung</span>MilitaryRP Erfahrung eintragen</div>
-    <div class="card"><span class="label">Aktivität</span>Hoch</div>
-  </div>
+    <div class="wrap">
+      <div class="hero-card reveal visible">
+        <div class="hero-top">
+          <div class="chip">Dossier • Feldmappe • Al-Yad</div>
+          <img class="stamp-img" src="assets/classified-stamp.svg" alt="Vertraulich" />
+        </div>
 
-  <p>
-    OOC bin ich eine ruhige, zuverlässige und aktive Person. Ich kann Verantwortung übernehmen,
-    bleibe auch in stressigen Situationen ruhig und lege Wert auf respektvolles RP.
-  </p>
-</section>
+        <div class="hero-main">
+          <div class="emblem-frame">
+            <img src="assets/al-yad-emblem.svg" alt="Al-Yad Emblem" />
+          </div>
 
-<section id="char">
-  <h2>Charakterakte: Nico Hills</h2>
+          <div>
+            <p class="eyebrow">Bewerbung zum Vize-Emir</p>
+            <h1>Nico Hills</h1>
+            <p class="subtitle">Spezialeinheiten-Regiment der Miliz</p>
+            <p class="hero-text">
+              Diese Bewerbungsakte stellt Nico Hills als Kandidaten für den Posten des Vize-Emirs
+              der Al-Yad vor.
+            </p>
 
-  <div class="grid">
-    <div class="card"><span class="label">Name</span>Nico Hills</div>
-    <div class="card"><span class="label">Zugehörigkeit</span>Miliz</div>
-    <div class="card"><span class="label">Regiment</span>Al-Yad</div>
-    <div class="card"><span class="label">Ruf</span>Starker Einzelkämpfer</div>
-  </div>
-
-  <p>
-    Nico Hills ist innerhalb der Miliz bekannt geworden durch seinen starken Einzelkampf
-    und dadurch, dass er mehrfach Gegner in Unterzahl vernichten konnte.
-  </p>
-
-  <p>
-    Zusätzlich ist er für zahlreiche Geiselnahmen bekannt. Daraus hat er sich ein eigenes
-    Geschäft aufgebaut und bewiesen, dass er nicht nur kämpfen, sondern auch taktisch denken
-    und verhandeln kann.
-  </p>
-
-  <p>
-    Innerhalb der Al-Yad wird Nico Hills geschätzt. Auch innerhalb der gesamten Miliz genießt
-    er einen guten Ruf.
-  </p>
-</section>
-
-<section>
-  <h2>Einsatzhistorie</h2>
-  <div class="timeline">
-    <div>
-      <strong>Gefechte in Unterzahl</strong><br>
-      Nico Hills konnte sich mehrfach gegen zahlenmäßig überlegene Gegner behaupten.
+            <div class="hero-actions">
+              <a class="button primary" href="#brief">Brief an den Emir lesen</a>
+              <a class="button secondary" href="#gextension">GExtension öffnen</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-      <strong>Geiselnahmen</strong><br>
-      Durch organisierte Aktionen baute er Einfluss, Ruf und ein eigenes Geschäft auf.
-    </div>
-    <div>
-      <strong>Ansehen innerhalb der Miliz</strong><br>
-      Sein Mut, seine Loyalität und seine Effektivität verschafften ihm Respekt.
-    </div>
-  </div>
-</section>
+  </header>
 
-<section id="ziele">
-  <h2>Ziele als Vize-Emir</h2>
+  <main class="wrap">
 
-  <div class="grid">
-    <div class="card">Den Emir aktiv unterstützen</div>
-    <div class="card">Disziplin innerhalb der Al-Yad stärken</div>
-    <div class="card">Neue Mitglieder fördern</div>
-    <div class="card">Einsätze besser koordinieren</div>
-    <div class="card">Klare Strukturen schaffen</div>
-    <div class="card">Den Ruf der Al-Yad ausbauen</div>
-  </div>
+    <section class="section reveal" id="ooc">
+      <div class="section-head">
+        <div class="kicker">Persönliche Ebene</div>
+        <h2>Ich als Person OOC</h2>
+        <p class="desc">
+          Eine leitende Position braucht nicht nur Ingame-Stärke, sondern auch Aktivität,
+          Ruhe, Verlässlichkeit und die Fähigkeit, mit anderen Spielern ordentlich umzugehen.
+        </p>
+      </div>
 
-  <p>
-    Als Vize-Emir möchte ich nicht nur einen Rang tragen. Ich möchte Verantwortung übernehmen,
-    die Einheit stärken und dafür sorgen, dass die Al-Yad weiterhin als gefürchtete und
-    respektierte Spezialeinheit der Miliz gilt.
-  </p>
-</section>
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">Persönliche Informationen</div>
+          <div class="panel-code">OOC Akte</div>
+        </div>
 
-<section id="brief">
-  <h2>Brief an den Emir</h2>
+        <div class="panel-body">
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="label">Name</span>
+              <div class="value">Nico</div>
+            </div>
 
-  <div class="quote">
-    <p><strong>An den ehrenwerten Emir der Al-Yad,</strong></p>
+            <div class="info-card">
+              <span class="label">Alter</span>
+              <div class="value">21</div>
+            </div>
 
-    <p>
-      mit Respekt und Entschlossenheit richte ich diese Bewerbung an Euch.
-    </p>
+            <div class="info-card">
+              <span class="label">Steam-Name</span>
+              <div class="value" href="https://steamcommunity.com/profiles/76561198355088007/">Zuna</div>
+            </div>
 
-    <p>
-      Die Al-Yad ist mehr als nur ein Regiment. Sie ist die Hand der Miliz,
-      geführt durch Loyalität, Disziplin und Stärke.
-    </p>
+            <div class="info-card">
+              <span class="label">Spielzeit</span>
+              <div class="value">15 Stunden Wöchtenlich</div>
+            </div>
 
-    <p>
-      Ich, Nico Hills, habe mich im Kampf bewiesen. Ich habe Gegner in Unterzahl bezwungen,
-      Geiseln genommen, Einfluss aufgebaut und mir innerhalb der Miliz einen Namen gemacht.
-    </p>
+            <div class="info-card">
+              <span class="label">MilitaryRP Erfahrung</span>
+              <div class="value">1129 Stunden Insgesamt</div>
+            </div>
 
-    <p>
-      Doch Kampfkraft allein reicht nicht aus. Eine Einheit wie die Al-Yad benötigt Ordnung,
-      Führung und jemanden, der an der Seite des Emirs Verantwortung trägt.
-    </p>
+            <div class="info-card">
+              <span class="label">Aktivität</span>
+              <div class="value">Hoch</div>
+            </div>
+          </div>
 
-    <p>
-      Diese Verantwortung möchte ich übernehmen.
-    </p>
+          <div style="height: 20px;"></div>
 
-    <p>
-      Als Vize-Emir werde ich Euch loyal unterstützen, Eure Befehle vertreten und die Einheit
-      mit Disziplin und Entschlossenheit führen.
-    </p>
+          <div class="two-col">
+            <div class="copy">
+              Ich bin der Nico. Ich komme aus dem Südwesten Deutschlands nähe Koblenz.
+              Ich bin aktuell im 2. Lehrjahr als Fachinformatiker für Systemintegration.
+              Anhand meines Beitrages zu erkennen habe ich Privat und Beruflich mir selber HTML angeignet.
+              OOC bin ich eine ruhige, zuverlässige und aktive Person. Ich kann Verantwortung
+              übernehmen, bleibe auch in stressigen Situationen ruhig und versuche, Konflikte
+              sachlich zu lösen.
+              <br><br>
+              Mir ist wichtig, dass ein Regiment nicht nur durch Stärke im Kampf überzeugt,
+              sondern auch durch Struktur, Zusammenhalt und gutes Auftreten. Als Vize-Emir
+              möchte ich den Emir aktiv unterstützen, neue Mitglieder fördern und dafür sorgen,
+              dass die Al-Yad ihren Ruf als Eliteeinheit weiterhin gerecht bleiben.
+            </div>
 
-    <p>
-      <strong>Für die Miliz.<br>
-      Für Adirien.<br>
-      Für die Al-Yad.</strong>
-    </p>
+            <div class="stat-list">
+              <div class="stat">
+                <div class="stat-row"><span>Verantwortung</span><span>95%</span></div>
+                <div class="bar"><span style="width:95%"></span></div>
+              </div>
 
-    <p><em>gez. Nico Hills</em></p>
-  </div>
-</section>
+              <div class="stat">
+                <div class="stat-row"><span>Aktivität</span><span>92%</span></div>
+                <div class="bar"><span style="width:92%"></span></div>
+              </div>
 
-<section id="gextension">
-  <h2>GExtension</h2>
-  <p>Hier ist mein GExtension-Profil verlinkt:</p>
+              <div class="stat">
+                <div class="stat-row"><span>Kommunikation</span><span>88%</span></div>
+                <div class="bar"><span style="width:88%"></span></div>
+              </div>
 
-  <a class="btn" href="HIER_DEIN_GEXTENSION_LINK_EINFÜGEN" target="_blank">
-    GExtension öffnen
-  </a>
-</section>
+              <div class="stat">
+                <div class="stat-row"><span>Ruhe unter Druck</span><span>90%</span></div>
+                <div class="bar"><span style="width:90%"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</main>
+    <section class="section reveal" id="charakter">
+      <div class="section-head">
+        <div class="kicker">Charakterakte</div>
+        <h2>Nico Hills im Spiel</h2>
+        <p class="desc">
+          Nico Hills ist innerhalb der Miliz bekannt geworden durch Stärke im Einzelkampf,
+          konsequentes Auftreten und seinen Ruf als gefährlicher Akteur der Al-Yad.
+        </p>
+      </div>
 
-<footer>
-  Al-Yad — Die Hand der Miliz<br>
-  Bewerbung zum Vize-Emir | Nico Hills
-</footer>
+      <div class="dossier-layout">
+        <aside class="portrait-card">
+          <img src="assets/nico-hills-silhouette.svg" alt="Silhouette von Nico Hills" />
+          <div class="portrait-note">
+            <strong>Nico Hills</strong><br>
+            Zugehörigkeit: Miliz<br>
+            Regiment: Al-Yad<br>
+            Position: Bewerber zum Vize-Emir<br>
+            Ruf: Starker Einzelkämpfer, Geiselnehmer, erfahrener Kämpfer
+          </div>
+        </aside>
 
+        <div class="panel">
+          <div class="panel-header">
+            <div class="panel-title">Dienstakte • Nico Hills</div>
+            <div class="panel-code">AY-CHAR-02</div>
+          </div>
+
+          <div class="panel-body">
+            <div class="info-grid">
+              <div class="info-card">
+                <span class="label">Name</span>
+                <div class="value">Nico Hills</div>
+              </div>
+
+              <div class="info-card">
+                <span class="label">Zugehörigkeit</span>
+                <div class="value">Miliz</div>
+              </div>
+
+              <div class="info-card">
+                <span class="label">Regiment</span>
+                <div class="value">Al-Yad</div>
+              </div>
+
+              <div class="info-card">
+                <span class="label">Bekannt für</span>
+                <div class="value">Einzelkampf und Geiselnahmen</div>
+              </div>
+
+              <div class="info-card">
+                <span class="label">Ruf</span>
+                <div class="value">Geschätzt innerhalb der Einheit</div>
+              </div>
+
+              <div class="info-card">
+                <span class="label">Ziel</span>
+                <div class="value">Vize-Emir</div>
+              </div>
+            </div>
+
+            <div style="height: 20px;"></div>
+
+            <div class="copy">
+              Nico Hills ist innerhalb der Miliz kein unbekannter Name. Bekannt wurde er
+              vor allem durch seinen starken Einzelkampf und dadurch, dass er mehrfach Gegner
+              auch in Unterzahl vernichten konnte.
+              <br><br>
+              Neben seiner Kampfstärke hat er sich durch zahlreiche Geiselnahmen einen Namen
+              gemacht und daraus ein eigenes Geschäft aufgebaut. Dadurch konnte er nicht nur
+              Einfluss gewinnen, sondern auch zeigen, dass er taktisch denkt und Chancen erkennt,
+              wo andere nur Risiko sehen.
+              <br><br>
+              Innerhalb der Al-Yad wird Nico Hills geschätzt. Auch innerhalb der gesamten Miliz
+              genießt er einen guten Ruf, da er Einsatzbereitschaft, Mut und Loyalität zeigt.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="adirien">
+      <div class="section-head">
+        <div class="kicker">Welt und Konflikt</div>
+        <h2>Adirien und die Rolle der Al-Yad</h2>
+        <p class="desc">
+          Die Bewerbung steht in einer Welt, die von politischer Spaltung,
+          instabiler Ordnung und dem Konflikt zwischen Miliz, Regierung und westlichem Einfluss geprägt ist.
+        </p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-title">Lagekarte • Adirien</div>
+          <div class="panel-code">MAP-ADIR-03</div>
+        </div>
+
+        <div class="panel-body map-panel">
+          <img src="assets/adiri-map.svg" alt="Stilisierte Karte von Adirien" />
+
+          <div class="copy">
+            Adirien ist ein Land, das durch politische Instabilität und äußeren Einfluss
+            geprägt ist. In diesem Umfeld wuchs die Miliz als Kraft heran, die aus Sicht
+            ihrer Anhänger gegen Fremdbestimmung, Korruption und eine schwache Regierung vorgeht.
+            <br><br>
+            Die Al-Yad nimmt innerhalb dieser Struktur eine besondere Rolle ein. Sie ist nicht
+            die breite Masse der Miliz, sondern deren Spezialeinheit. Ihre Mitglieder sollen dort
+            handeln, wo Disziplin, Entschlossenheit und taktisches Vorgehen gebraucht werden.
+            <br><br>
+            Als Vize-Emir möchte Nico Hills diese Rolle stärken und dafür sorgen, dass die
+            Al-Yad geschlossen, loyal und wirksam auftritt.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="historie">
+      <div class="section-head">
+        <div class="kicker">Ruf und Vergangenheit</div>
+        <h2>Einsatzhistorie</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-title">Starker Einzelkampf</div>
+          <div class="timeline-text">
+            Nico Hills wurde durch seinen starken Einzelkampf bekannt und konnte sich mehrfach
+            in Situationen behaupten, in denen er zahlenmäßig unterlegen war.
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-title">Geiselnahmen und Einfluss</div>
+          <div class="timeline-text">
+            Durch mehrere Geiselnahmen baute er sich ein eigenes Geschäft auf und bewies
+            dabei Verhandlungsgeschick, Risikobereitschaft und taktisches Denken.
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-title">Ansehen innerhalb der Miliz</div>
+          <div class="timeline-text">
+            Sein Auftreten, seine Loyalität und seine Effektivität sorgten dafür, dass er
+            innerhalb der Al-Yad und der Miliz einen guten Ruf genießt.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="ziele">
+      <div class="section-head">
+        <div class="kicker">Führungsanspruch</div>
+        <h2>Ziele als Vize-Emir</h2>
+        <p class="desc">
+          Der Rang des Vize-Emirs soll nicht nur getragen werden. Er soll der Einheit
+          Struktur, Präsenz und klare Führung geben.
+        </p>
+      </div>
+
+      <div class="goals">
+        <div class="goal">
+          <div class="mark">✓</div>
+          <div>Den Emir aktiv unterstützen und organisatorisch entlasten.</div>
+        </div>
+
+        <div class="goal">
+          <div class="mark">✓</div>
+          <div>Disziplin innerhalb der Al-Yad stärken und konsequent vertreten.</div>
+        </div>
+
+        <div class="goal">
+          <div class="mark">✓</div>
+          <div>Neue Mitglieder fördern, einweisen und an die Standards der Einheit gewöhnen.</div>
+        </div>
+
+        <div class="goal">
+          <div class="mark">✓</div>
+          <div>Einsätze koordinierter durchführen und klare Befehlsstrukturen schaffen.</div>
+        </div>
+
+        <div class="goal">
+          <div class="mark">✓</div>
+          <div>Den Ruf der Al-Yad als Spezialeinheit der Miliz weiter ausbauen.</div>
+        </div>
+
+        <div class="goal">
+          <div class="mark">✓</div>
+          <div>Loyalität, Stärke und Zusammenhalt innerhalb des Regiments fördern.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="brief">
+      <div class="section-head">
+        <div class="kicker">Persönliches Schreiben</div>
+        <h2>Brief an den Emir</h2>
+      </div>
+
+      <article class="letter">
+        <div class="letter-head">
+          <div>
+            <p class="letter-title">An den ehrenwerten Emir der Al-Yad,</p>
+            <div class="letter-sub">Formelle Bewerbung um den Posten des Vize-Emirs</div>
+          </div>
+
+          <div class="wax">AY</div>
+        </div>
+
+        <div class="letter-body">
+          mit Respekt und Entschlossenheit richte ich diese Worte an Euch.
+          <br><br>
+          Die Al-Yad ist eine Einheit, die mehr verlangt als bloße Kampfkraft.
+          Sie verlangt Loyalität, Disziplin, taktisches Verständnis und den Willen,
+          Verantwortung für die Miliz und Adirien zu übernehmen.
+          <br><br>
+          Ich, Nico Hills, habe mich auf dem Schlachtfeld bewiesen. Ich habe Gegner
+          in Unterzahl bezwungen, Geiseln genommen, Einfluss aufgebaut und mir innerhalb
+          der Miliz einen Namen gemacht.
+          <br><br>
+          Doch Stärke allein reicht nicht aus.
+          <br><br>
+          Eine Einheit wie die Al-Yad braucht Führung, Ordnung und jemanden, der an der
+          Seite des Emirs steht. Jemanden, der Befehle durchsetzt, Mitglieder führt und
+          auch in schwierigen Momenten ruhig bleibt.
+          <br><br>
+          Ich möchte diese Rolle übernehmen.
+          <br><br>
+          Als Vize-Emir werde ich Euch unterstützen, Eure Befehle vertreten, die Einheit
+          stärken und dafür sorgen, dass die Al-Yad weiterhin als Speerspitze der Miliz gilt.
+          <br><br>
+          <strong>Für die Miliz.<br>
+          Für Adirien.<br>
+          Für die Al-Yad.<br>
+          Für den Sayya</strong>
+          <br><br>
+          <strong>gez. Nico Hills</strong>
+        </div>
+      </article>
+    </section>
+
+    <section class="section reveal" id="gextension">
+      <div class="section-head">
+        <div class="kicker">Externer Nachweis</div>
+        <h2>GExtension</h2>
+      </div>
+
+      <div class="cta">
+        <p>
+          Über den folgenden Button kann mein GExtension-Profil geöffnet werden.
+        </p>
+
+        <a class="button primary" href="https://legionofsensei.de/gextension/index.php?t=user&id=76561198355088007" target="_blank" rel="noopener noreferrer">
+          ► GExtension öffnen
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-line"></div>
+    <div>Al-Yad • Die Hand der Miliz • Bewerbung zum Vize-Emir</div>
+    <div style="margin-top: 8px; font-size: 0.92rem;">Nico Hills • Feldakte aus Adirien</div>
+    <p></p>
+    <div>CSS und Grafiken wurden mithilfe von ChatGPT 5.5 erstellt über verbundenes GitHub Repository<br>
+    Inhalte sowie Header, Body und Footer wurden von mir erstellt</div>
+    </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.13 });
+
+    revealElements.forEach(element => observer.observe(element));
+  </script>
 </body>
 </html>
